@@ -1,5 +1,6 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
 
+from src.resources.main import main
 from src.config import modes
 
 
@@ -28,8 +29,6 @@ def create_app(mode: str = 'DEPLOY') -> Flask:
         return render_template('error/error-500.html'), 500
 
     # Endpoints
-    # app.register_blueprint(main)
-    # app.register_blueprint(user)
-    # app.register_blueprint(drink)
+    app.register_blueprint(main)
 
     return app
